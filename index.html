@@ -9,16 +9,18 @@
     <style>
         html,
         body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100vh;
             display: flex;
-            flex-direction: row;
             justify-content: center;
             align-items: center;
+            height: 100vh;
             background: #000;
         }
+
+    .button-container {
+            display: flex;
+            gap: 20px; /* Adds space between buttons */
+        }
+
 
         .glow-on-hover {
             width: 220px;;
@@ -87,8 +89,11 @@
     </style>
 </head>
 <body>
-    <a href="clock.html" style="margin-right: 19px;"><button type="button" class="glow-on-hover">CLOCK</button></a>
-    <a href="stopwatch.html"><button type="button" class="glow-on-hover">STOP WATCH</button></a>
+    <div class="button-container">
+        <a href="clock.html"><button type="button" class="glow-on-hover">CLOCK</button></a>
+        <a href="stopwatch.html"><button type="button" class="glow-on-hover">STOP WATCH</button></a>
+    </div>
+    
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

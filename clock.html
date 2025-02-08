@@ -6,58 +6,38 @@
     <title>CLOCK</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body{
+        body {
             background-color: black;
             color: rgb(98, 182, 185);
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-        .date {
+        .date, .time {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 10vh;
-            margin-top: 10px;
             background-color: black;
             color: rgb(98, 182, 185);
             padding: 20px;
-            font-size: 80px;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-weight: 100;
-            position: absolute;
-            top: 330px;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        }
+        .date {
+            font-size: 8vw;
+        }
+        .time {
+            font-size: 6vw;
         }
         .month {
             color: rgb(98, 182, 185);
-            position: relative;
-            margin-top: 400px;
-            font-size: 35px;
+            font-size: 6vw;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-weight: 100;
-            height: 1vh;
-            margin-right: 200px;
-            right: 20px; 
-            left: 100px;
-        }
-        .time {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 10vh;
-            margin-top: 10px;
-            background-color: black;
-            color: rgb(98, 182, 185);
-            padding: 20px;
-            font-size: 60px;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: 100;
-            position: absolute;
-            top: 500px;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -71,7 +51,7 @@
     <script>
         document.getElementById('time').innerHTML = '00' + ":" + '00' + ":" + '00';
         const NOW = new Date();
-        const Day ={
+        const Day = {
             0: "Sunday",
             1: "Monday",
             2: "Tuesday",
@@ -80,7 +60,7 @@
             5: "Friday",
             6: "Saturday"
         };
-        const Month ={
+        const Month = {
             0: "January",
             1: "February",
             2: "March",
@@ -98,33 +78,32 @@
         const month = NOW.getMonth();
         const day_num = NOW.getDate();
         const year = NOW.getFullYear();
-        function clock()
-        {
+        function clock() {
             const NOW = new Date();
             let hr = NOW.getHours();
             let min = NOW.getMinutes();
             let sec = NOW.getSeconds();
-            if(min<10){
+            if (min < 10) {
                 min = NOW.getMinutes().toString();
-                min='0'+min;
-            };
-            if (sec<10){
+                min = '0' + min;
+            }
+            if (sec < 10) {
                 sec = NOW.getSeconds().toString();
-                sec='0'+sec;   
-            };
-            if(hr>12){
-                hr=hr-12;
-                hr.toString();
-                hr='0'+hr;
-                }else{
-                    hr.toString;
-                    hr='0'+hr;
-                } 
-        document.getElementById('time').innerHTML = hr + ":" + min + ":" + sec;
+                sec = '0' + sec;
+            }
+            if (hr > 12) {
+                hr = hr - 12;
+                hr = hr.toString();
+                hr = '0' + hr;
+            } else {
+                hr = hr.toString();
+                hr = '0' + hr;
+            }
+            document.getElementById('time').innerHTML = hr + ":" + min + ":" + sec;
         }
-        setInterval(clock,1000);
-        document.getElementById('date').innerHTML=Day[day_str]+`<br>`;
-        document.getElementById('month').innerHTML=Month[month]+ ' '+day_num+' '+year;
+        setInterval(clock, 1000);
+        document.getElementById('date').innerHTML = Day[day_str] + `<br>`;
+        document.getElementById('month').innerHTML = Month[month] + ' ' + day_num + ' ' + year;
     </script>
 </body>
 </html>

@@ -25,7 +25,8 @@
             color: rgb(98, 182, 185);
             padding: 20px;
             font-family: 'Roboto', sans-serif;
-            font-weight: 100;
+            font-weight: 500;
+            top: 10%;
         }
         .date {
             font-size: 8vw;
@@ -37,8 +38,8 @@
             color: rgb(98, 182, 185);
             font-size: 6vw;
             font-family: 'Roboto', sans-serif;
-            font-weight: 100;
-            margin-top: 20px;
+            font-weight: 500;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -50,7 +51,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById('time').innerHTML = '00' + ":" + '00' + ":" + '00';
+        document.getElementById('time').innerHTML = '00' + " : " + '00' + " : " + '00';
         const NOW = new Date();
         const Day = {
             0: "Sunday",
@@ -100,7 +101,7 @@
                 hr = hr.toString();
                 hr = '0' + hr;
             }
-            document.getElementById('time').innerHTML = hr + ":" + min + ":" + sec;
+            document.getElementById('time').innerHTML = hr + " : " + min + " : " + sec;
         }
         setInterval(clock, 1000);
         document.getElementById('date').innerHTML = Day[day_str] + `<br>`;

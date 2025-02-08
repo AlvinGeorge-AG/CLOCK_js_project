@@ -95,10 +95,12 @@
             }
             if (hr > 12) {
                 hr = hr - 12;
-                hr = hr.toString();
-                hr = '0' + hr;
-            } else {
-                hr = hr.toString();
+                if(hr < 10) {
+                    hr = NOW.getHours().toString();
+                    hr = '0' + hr;
+                }
+            } else{
+                hr = NOW.getHours().toString();
                 hr = '0' + hr;
             }
             document.getElementById('time').innerHTML = hr + " : " + min + " : " + sec;
